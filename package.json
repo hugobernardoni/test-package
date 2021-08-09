@@ -1,6 +1,6 @@
 {
-  "name": "@hugobernardoni/testPackage",
-  "version": "1.0.0",
+  "name": "@hugobernardoni/test-package",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/hugobernardoni/testPackage.git"
+    "url": "git://github.com/hugobernardoni/test-package.git"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
@@ -17,7 +17,7 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hugobernardoni/testPackage/issues"
+    "url": "https://github.com/hugobernardoni/test-package/issues"
   },
-  "homepage": "https://github.com/hugobernardoni/testPackage#readme"
+  "homepage": "https://github.com/hugobernardoni/test-package#readme"
 }
