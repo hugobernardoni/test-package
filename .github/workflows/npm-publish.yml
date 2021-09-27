@@ -25,6 +25,8 @@ jobs:
           scope: '@hugobernardoni'
       - run: npm install
       - run: npm build
+      - run: git add .
+      - run: git commit -m "publish to npm"
       - run: npm version patch
       - run: npm publish
         env:
