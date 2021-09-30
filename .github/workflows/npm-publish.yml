@@ -11,11 +11,18 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest 
+    #if: "startsWith(github.event.head_commit.message, '[RELEASE]')"
     permissions: 
       contents: read
       packages: write 
     steps:
       - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - run: git config --global user.name 'Hugo Oliveira'
+      - run: git config --global user.email 'hugo.bernardoni@gmail.com'
+      - run: npm version patch -m "[RELEASE] %s"
+      - run: git push
       # Setup .npmrc file to publish to GitHub Packages
       - uses: actions/setup-node@v2
         with:
@@ -23,9 +30,9 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'          
           # Defaults to the user or organization that owns the workflow file
           scope: '@hugobernardoni'
+      
       - run: yarn install --frozen-lockfile   
-      - run: yarn build
-      - run: yarn version --new-version "${GITHUB_REF:11}"
+      - run: yarn build      
       - run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
