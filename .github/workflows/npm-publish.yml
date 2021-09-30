@@ -23,8 +23,9 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'          
           # Defaults to the user or organization that owns the workflow file
           scope: '@hugobernardoni'
-      - run: yarn install --frozen-lockfile      
-      - run: yarn version --new-version "${GITHUB_REF:11}" --no-git-tag-version
+      - run: yarn install --frozen-lockfile   
+      - run: yarn build
+      - run: yarn version --new-version "${GITHUB_REF:11}"
       - run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
