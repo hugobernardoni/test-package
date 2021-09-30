@@ -18,11 +18,16 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          node-version: '14.x'
+          registry-url: 'https://npm.pkg.github.com'                    
+          scope: '@hugobernardoni'
+          token: ${{ secrets.GITHUB_TOKEN }}        
       - run: git config --global user.name 'Hugo Oliveira'
       - run: git config --global user.email 'hugo.bernardoni@gmail.com'
       - run: npm version patch -m "[RELEASE] %s"
       - run: git push
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # Setup .npmrc file to publish to GitHub Packages
       - uses: actions/setup-node@v2
         with:
