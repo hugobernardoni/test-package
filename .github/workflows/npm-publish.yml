@@ -11,7 +11,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest 
-    #if: "startsWith(github.event.head_commit.message, '[RELEASE]')"
+    if: "startsWith(github.event.head_commit.message, '[RELEASE]')"
     permissions: 
       contents: read
       packages: write 
@@ -24,7 +24,7 @@ jobs:
           token: ${{ secrets.NPM_ACCESS_TOKEN }}        
       - run: git config --global user.name 'Hugo Oliveira'
       - run: git config --global user.email 'hugo.bernardoni@gmail.com'
-      - run: npm version patch -m "[RELEASE] %s"
+      - run: npm version patch -m "[VERSION] %s"
       - run: git push
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
