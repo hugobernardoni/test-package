@@ -1,5 +1,5 @@
 function GetName(name: string) {
-    console.log(`Hello ${name}. ddsssaaass`);
+    console.log(`Hello ${name}. ddsssaaasss`);
 }
 
 export { GetName }
