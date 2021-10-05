@@ -45,7 +45,7 @@ jobs:
     needs: build
     strategy:
       matrix:
-        repo: ['@hugobernardoni/get-package']
+        repo: ['hugobernardoni/get-package']
     runs-on: ubuntu-latest
     steps:
       - name: Repository Dispatch
