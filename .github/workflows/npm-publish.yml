@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  build:
+  create-package:
     runs-on: ubuntu-latest 
     if: "startsWith(github.event.head_commit.message, '[RELEASE]')"
     permissions: 
@@ -41,8 +41,12 @@ jobs:
       - run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
+      - name: Package creating
+        run: |
+          echo "Waiting sleep time"
+          sleep 10s
   dispatch:
-    needs: build
+    needs: create-package
     strategy:
       matrix:
         repo: ['hugobernardoni/get-package']
