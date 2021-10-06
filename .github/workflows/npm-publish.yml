@@ -46,10 +46,7 @@ jobs:
           echo "Waiting sleep time"
           sleep 10s
   dispatch:
-    needs: create-package
-    strategy:
-      matrix:
-        repo: ['hugobernardoni/get-package', 'hugobernardoni/teste']
+    needs: create-package    
     runs-on: ubuntu-latest
     steps:
       - name: Build get-package
@@ -61,6 +58,6 @@ jobs:
       - name: Build Teste
         uses: peter-evans/repository-dispatch@v1
         with:
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          token: ${{ secrets.NPM_ACCESS_TOKEN }}
           repository: hugobernardoni/teste
           event-type: deploy_lambda          
