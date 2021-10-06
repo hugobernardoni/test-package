@@ -49,7 +49,7 @@ jobs:
     needs: create-package
     strategy:
       matrix:
-        repo: ['hugobernardoni/get-package']
+        repo: ['hugobernardoni/get-package', 'hugobernardoni/teste']
     runs-on: ubuntu-latest
     steps:
       - name: Repository Dispatch
