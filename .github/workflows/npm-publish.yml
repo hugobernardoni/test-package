@@ -52,9 +52,15 @@ jobs:
         repo: ['hugobernardoni/get-package', 'hugobernardoni/teste']
     runs-on: ubuntu-latest
     steps:
-      - name: Repository Dispatch
+      - name: Build get-package
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.NPM_ACCESS_TOKEN }}
-          repository: ${{ matrix.repo }}
+          repository: hugobernardoni/get-package
           event-type: build
+      - name: Build Teste
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          repository: hugobernardoni/teste
+          event-type: deploy_lambda          
