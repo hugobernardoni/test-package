@@ -1,5 +1,5 @@
 function GetName(name: string) {
-    var response = `Hello ${name}. Seja bem vindo e testamos o package`
+    var response = `Hello ${name}. Seja bem vindo!`
     console.log(response);
 
     return response;
