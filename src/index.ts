@@ -1,5 +1,8 @@
 function GetName(name: string) {
-    console.log(`Hello ${name}. ddsaaasaaaaaasss`);
+    var response = `Hello ${name}. Seja bem vindo`
+    console.log(response);
+
+    return response;
 }
 
 export { GetName }
